@@ -15,8 +15,12 @@ def get_active_connections():
 
     return ips
 
+def block_ip(ip):
+    command = f"sudo iptables -A INPUT -s {ip} -j DROP"
+    print(command)
+    proc = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
 
-connections = get_active_connections()
-pp = pprint.PrettyPrinter()
-pp.pprint(connections)
-# print(connections)
+def unblock_ip(ip):
+    command = f"sudo iptables -D INPUT -s {ip} -j DROP"
+    proc = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+
