@@ -2,6 +2,7 @@
 <!-- Generated with glade 3.22.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkAccelGroup" id="accelgroup1"/>
   <object class="GtkListStore" id="active_store">
     <columns>
       <!-- column-name active_connections -->
@@ -117,6 +118,9 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <property name="accel_group">accelgroup1</property>
+                        <signal name="activate" handler="onDestroy" swapped="no"/>
+                        <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                       </object>
                     </child>
                   </object>
@@ -422,7 +426,7 @@
                               <object class="GtkLabel">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">NoDOS monitors your incoming network traffic and alerts you to posible on-going DDOS attacks. In the top left pane you can see all IP's connected to the server and how many active connections they have. The bottom left pane shows the rules you have created. Add a new rule in the bottom right to selectively ban or warn of specific IP's that make a certain amount of connections. You can set a rule to apply to subnets as well by using .X, e.g 192.168.X.X will apply the rule cumletivly to all IP adress's in the /16 subnet. The rule will apply for the cumlative traffic to help protect from distruibuted DDOS attacks. </property>
+                                <property name="label" translatable="yes">NoDOS monitors your incoming network traffic and alerts you to posible on-going DOS attacks. In the top left pane you can see all IP's connected to the server and how many active connections they have. The bottom left pane shows the rules you have created. Add a new rule in the bottom right to selectively ban or warn of specific IP's that make a certain amount of connections. You can set a rule to apply to subnets as well by using .X, e.g 192.168.X.X will apply the rule cumletivly to all IP adress's in the /16 subnet. The rule will apply for the cumlative traffic to help protect from distruibuted DOS attacks. </property>
                                 <property name="wrap">True</property>
                                 <property name="width_chars">32</property>
                                 <property name="max_width_chars">0</property>
